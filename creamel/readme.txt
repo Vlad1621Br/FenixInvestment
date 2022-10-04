@@ -14,7 +14,7 @@ A starter theme called creamel.
 
 == Description ==
 
-Vlad Borzykh - Web Developer
+Serhii Ivanov - Web Developer
 
 == Installation ==
 

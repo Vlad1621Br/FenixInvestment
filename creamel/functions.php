@@ -189,7 +189,7 @@ if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
 */
-function echo_phone_link() {$phone_mobile_link=get_field('phone', 30); echo '+'.preg_replace('/[^0-9]/', '', $phone_mobile_link);}
+function echo_phone_link() {$phone_mobile_link=get_field('phone', 11); echo '+'.preg_replace('/[^0-9]/', '', $phone_mobile_link);}
 
 function do_excerpt($string, $word_limit)
 {
@@ -421,6 +421,14 @@ if ( function_exists( 'pll_register_string' ) ) {
 	/*faq*/
 	pll_register_string('title_faq', 'title_faq');
 	pll_register_string('subtitle_faq', 'subtitle_faq');
+	
+	/*methods*/
+	pll_register_string('title_methods', 'title_methods');
+	pll_register_string('title_method_1', 'title_method_1');
+	pll_register_string('title_method_2', 'title_method_2');
+	pll_register_string('title_method_3', 'title_method_3');
+	pll_register_string('subtitle_method_3', 'subtitle_method_3');
+	
 
 	/*risk_info*/
 	pll_register_string('title_risk_information', 'title_risk_information');
@@ -431,6 +439,7 @@ if ( function_exists( 'pll_register_string' ) ) {
 
 	/*title about us in numbers*/
 	pll_register_string('title_about_us_in_numbers', 'title_about_us_in_numbers');
+	pll_register_string('signature_about_us_in_numbers', 'signature_about_us_in_numbers');
 	pll_register_string('company_registration_data', 'company_registration_data');
 	pll_register_string('download_official_reg_file', 'download_official_reg_file');
 	
@@ -508,6 +517,7 @@ if ( function_exists( 'pll_register_string' ) ) {
 	pll_register_string('f_CONTACTS', 'f_CONTACTS');
 	pll_register_string('f_Privacy_Policy', 'f_Privacy_Policy');
 	pll_register_string('f_website_development', 'f_website_development');
+	pll_register_string('f_footer_signature', 'f_footer_signature');
 
 	pll_register_string('popup_Thanks', 'popup_Thanks');
 	pll_register_string('popup_our_manager_will_contact_you', 'popup_our_manager_will_contact_you');

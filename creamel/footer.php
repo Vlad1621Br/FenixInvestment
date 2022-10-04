@@ -8,7 +8,13 @@
  *
  * @package creamel
  */
-
+if (get_locale() == 'ru_RU') {
+	$page_id = 11;
+} else if (get_locale() == 'en_GB') {
+	$page_id = 288;
+} else {
+	$page_id = 393;
+}
 ?>
 	</section>
 	<footer id="colophon" class="site-footer">
@@ -63,36 +69,39 @@
 					<div class="block-title color_gray txt_upper mb-3"><?php pll_e('f_CONTACTS'); ?></div>
 					<a href="mailto:<?php the_field( "mail", 11 ); ?>" class="contact_link"><span class="icon-mail-gray mx-sm-2 mx-2"></span><div class="footer_mail d-xl-block d-block"><?php the_field( "mail", 11 ); ?></div></a>	
 					<?php if (get_locale() == 'ru_RU') { ?>
-						<a href="phone:<?php the_field( "phone", 11 ); ?>" class="contact_link mt-3"><span class="icon-phone-gray mx-sm-2 mx-2"></span><div class=" footer_phone d-xl-block d-block"><?php the_field( "phone", 11 ); ?></div></a>
+					<a href="tel:<?php echo echo_phone_link(); ?>" class="contact_link mt-3"><span class="icon-phone-gray mx-sm-2 mx-2"></span><div class=" footer_phone d-xl-block d-block"><?php the_field( "phone", 11 ); ?></div></a>
 					<?php } ?>
-						
+					<?php if(get_field('time', $page_id)): ?><div class="contact_link mt-3"><span class="icon-time mx-sm-2 mx-2"></span><div class="footer_time d-block"><?php the_field( "time", $page_id ); ?></div></div><?php endif; ?>
+					<?php if(get_field('address', $page_id)): ?><div class="contact_link mt-3 ms-5 ps-1 mb-4"><?php the_field( "address", $page_id ); ?></div><?php endif; ?>
 				</div>
 
 				<div class="contact_us col-lg-4 col-sm-7 col-12 order-3 mb-lg-0 mb-5">
 					<div class="b_contacts">
-						<div class="b_mail"><?php echo get_field('mail', 30); ?></div>
+						<?php /*
+             			<div class="b_mail"><?php echo get_field('mail', 11); ?></div>
+						*/ ?>
 						<div class="b_phone">
-							<?php if(get_field('whatsapp', 30)): ?>
-							<a href="<?php echo get_field('whatsapp', 30); ?>" target="_blank" class="mr-2">
+							<?php if(get_field('whatsapp', 11)): ?>
+							<a href="<?php echo get_field('whatsapp', 11); ?>" target="_blank" class="mr-2">
 								<img src="<?php echo get_template_directory_uri() ?>/img/whatsapp.svg" alt="whatsapp" title="whatsapp">
 							</a>
 							<?php endif; ?>
-							<?php if(get_field('viber', 30)): ?>
-							<a href="<?php echo get_field('viber', 30); ?>" target="_blank" class="mr-2">
+							<?php if(get_field('viber', 11)): ?>
+							<a href="<?php echo get_field('viber', 11); ?>" target="_blank" class="mr-2">
 								<img src="<?php echo get_template_directory_uri() ?>/img/viber.svg" alt="viber" title="viber">
 							</a>
 							<?php endif; ?>
-							<?php if(get_field('telegram', 30)): ?>
-							<a href="<?php echo get_field('telegram', 30); ?>" target="_blank" class="mr-2">
+							<?php if(get_field('telegram', 11)): ?>
+							<a href="<?php echo get_field('telegram', 11); ?>" target="_blank" class="mr-2">
 								<img src="<?php echo get_template_directory_uri() ?>/img/telegram.svg" alt="telegram" title="telegram">
 							</a>
 							<?php endif; ?>
-							<a href="tel:<?php echo_phone_link(); ?>"><?php echo get_field('phone', 30); ?></a>
+							<?php /*<a href="tel:<?php echo_phone_link(); ?>"><?php echo get_field('phone', 11); ?></a>*/ ?>
 						</div>
 					</div>
 					<div class="socials">
-						<?php if(get_field('socials', 30)): ?>
-						<?php $i=1;while(the_repeater_field('socials', 30)): ?>
+						<?php if(get_field('socials', 11)): ?>
+						<?php $i=1;while(the_repeater_field('socials', 11)): ?>
 						<?php if(get_sub_field('link')): ?>
 						<a href="<?php echo get_sub_field('link'); ?>" target="_blank"><img src="<?php echo get_sub_field('icon'); ?>"></a>
 						<?php endif; ?>
@@ -130,7 +139,7 @@
 	<div class="footer_bottom">
 		<div class="site-info">
 			<div class="container">
-				<div class="row no-gutters text-white mb-4 mt-4">
+				<div class="row no-gutters text-white mb-3 mt-4">
 					<div class="name_of_the_site col-lg-4 col-12 pb-lg-0 pb-3 d-flex justify-content-start">
 						© <?php echo get_bloginfo('name'); ?> <?php echo date('Y'); ?>
 					</div>
@@ -138,6 +147,15 @@
 					<div class="website_development col-lg-4 col-12 pb-lg-0 pb-3 d-flex justify-content-end">
 						<div><?php pll_e('f_website_development'); ?> <a href="https://shulepov-code.ru/" target="_blank"><strong>Shulepov_Code</strong></a></div>
 					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="row no-gutters text-white mb-4">
+					<div class="name_of_the_site col-12 pb-lg-0 pb-3">
+						<?php pll_e('f_footer_signature'); ?>
+					</div>
+					
+					
 				</div>
 			</div>
 			<?php /*

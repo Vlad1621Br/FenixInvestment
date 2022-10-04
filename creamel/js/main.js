@@ -5,45 +5,7 @@ function validateEmail(email) {
   }
 */
 jQuery(document).ready(function ($) {
-/*
-	$('#wpcf-custom-btn-1, #wpcf-custom-btn-0').on('click', function() {
-		let name = $(this).closest(".wpcf7-form").find("input[name='firstname']").val();
-		let email = $(this).closest(".wpcf7-form").find("input[name='email']").val();
-		let theme = $(this).closest(".wpcf7-form").find("input[name='theme']").val();
-		let comment = $(this).closest(".wpcf7-form").find("textarea[name='textarea']").val();
-		let tel = $(this).closest(".wpcf7-form").find("input[name='telnumber']").val();
 
-		if(name !== ''){
-			$(this).closest(".wpcf7-form").find("input[name='firstname']").removeClass('border_red');
-		} else {
-			$(this).closest(".wpcf7-form").find("input[name='firstname']").addClass('border_red');
-		}
-		
-		if(email !== '' && validateEmail(email)){
-			$(this).closest(".wpcf7-form").find("input[name='email']").removeClass('border_red');
-		} else {
-			$(this).closest(".wpcf7-form").find("input[name='email']").addClass('border_red');
-		}
-		
-		if(theme !== ''){
-			$(this).closest(".wpcf7-form").find("input[name='theme']").removeClass('border_red');
-		} else {
-			$(this).closest(".wpcf7-form").find("input[name='theme']").addClass('border_red');
-		}
-		
-		if(comment !== ''){
-			$(this).closest(".wpcf7-form").find("textarea[name='textarea']").removeClass('border_red');
-		} else {
-			$(this).closest(".wpcf7-form").find("textarea[name='textarea']").addClass('border_red');
-		}
-		
-		if(tel !== ''){
-			$(this).closest(".wpcf7-form").find("input[name='telnumber']").removeClass('border_red');
-		} else {
-			$(this).closest(".wpcf7-form").find("input[name='telnumber']").addClass('border_red');
-		}
-	});
-*/
 	new WOW({ mobile:false }).init();
 	$(window).on('scroll load', function() {
 		var scroll = $(window).scrollTop();

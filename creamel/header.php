@@ -13,6 +13,24 @@
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
+	<meta name="yandex-verification" content="fa296a9dbbdf8637" />
+	<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(90488211, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/90488211" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
@@ -47,10 +65,10 @@
 						</ul>
 						<div class="admin_email_contact flex-xl-column">
 						<?php if (get_locale() == 'ru_RU') { ?>
-								<a href="phone:<?php the_field( "phone", 11 ); ?>" class="contact_link"><span class="icon-phone mx-sm-2 mx-2"></span><div class="d-xl-block d-none"><?php the_field( "phone", 11 ); ?></div></a>
+							<a href="tel:<?php echo echo_phone_link(); ?>" class="contact_link"><span class="icon-phone mx-sm-2 mx-2"></span><div class="d-xl-block d-none"><?php the_field( "phone", 11 ); ?></div></a>
+							<?php if(get_field('time', 11)): ?><div class="contact_link d-lg-block d-none lh-1"><div class="footer_time d-block small mx-3 ms-xl-5"><?php the_field( "time", 11 ); ?></div></div><?php endif; ?>
 						<?php } ?>
-						
-							<a href="mailto:<?php the_field( "mail", 11 ); ?>" class="contact_link"><span class="icon-mail mx-sm-2 mx-2"></span><div class="d-xl-block d-none"><?php the_field( "mail", 11 ); ?></div></a>			
+							<a href="mailto:<?php the_field( "mail", 11 ); ?>" class="contact_link"><span class="icon-mail mx-sm-2 mx-2"></span><div class="d-xl-block d-none"><?php the_field( "mail", 11 ); ?></div></a>
 						</div>
 
 						<a class="fancybox gr_btn" href="#contact_form_pop"><?php pll_e('header_btn_write_to_us'); ?></a>

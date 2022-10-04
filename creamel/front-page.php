@@ -101,7 +101,7 @@ get_header();
 	<div class="container">
 		<div class="row">
 			<div class="img_title_protection col-lg-6 col-12 d-flex justify-content-start">
-				<img src="https://fenix.koyot.info/wp-content/uploads/2021/10/img_block_max_protection.png">
+				<img src="/wp-content/uploads/2021/10/img_block_max_protection.png">
 				<span class="title_section title_max_protect"><?php pll_e('title_maximum_protection'); ?></span>
 			</div>
 			
@@ -216,7 +216,7 @@ get_header();
 				<?php pll_e('title_our_projects'); ?>
 			</div>
 			<?php global $wp_query;
-			$args = ['post_type' => 'projects','posts_per_page' => 2,];	
+			$args = ['post_type' => 'projects','posts_per_page' => 2];	
 			$wp_query = new WP_Query($args);
 			$i=1;while ( $wp_query->have_posts() ) : $wp_query->the_post();
 			?>
@@ -236,6 +236,62 @@ get_header();
 		</div>
 	</div>
 </section>
+
+
+
+
+				<!-- Способы зачисления инвестиций -->			
+<section id="methods" >
+	<div class="container">
+		<div class="row pb-96 pt-96">
+			<div class="title_methods title_section line_left_title col-lg-12 col-12 ps-4 mb-5">
+				<?php pll_e('title_methods'); ?>
+			</div>
+			
+			<div  class="col-lg-4 col-12 method_item mb-md-0 mb-4">				
+						
+					<div class="block_method">
+						<div class="method_img"><img src="<?php echo get_template_directory_uri() ?>/img/method1.svg"></div>
+						<div class="method_content">
+							<div class="method_head"><?php pll_e('title_method_1'); ?></div>
+							
+						</div>										
+					</div>
+				
+			</div>
+			
+			<div  class="col-lg-4 col-12 method_item mb-md-0 mb-4">				
+						
+					<div class="block_method">
+						<div class="method_img"><img src="<?php echo get_template_directory_uri() ?>/img/method2.svg"></div>
+						<div class="method_content">
+							<div class="method_head"><?php pll_e('title_method_2'); ?> (BitCoin, ETH)</div>
+							
+						</div>										
+					</div>
+				
+			</div>
+			
+			<div  class="col-lg-4 col-12 method_item mb-md-0 mb-4">				
+						
+					<div class="block_method">
+						<div class="method_img"><img src="<?php echo get_template_directory_uri() ?>/img/method3.svg"></div>
+						<div class="method_content">
+							<div class="method_head">Perfect money</div>
+							<div class="method_subhead"><?php pll_e('subtitle_method_3'); ?>: <a href="https://perfectmoney.com/public_view.html?id=49918912">Phoenix Group</a></div>
+						</div>										
+					</div>
+				
+			</div>
+			
+		</div>
+	</div>
+</section>
+
+
+
+
+
 
 
 <?php// get_template_part('inc_faq'); ?>

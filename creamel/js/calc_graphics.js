@@ -148,51 +148,6 @@ jQuery(document).ready(function ($) {
 				general_contributions = +(total_amount_with_interest.toFixed(2) - sum_interest.toFixed(2)).toFixed(2);
 
 
-/*
-		Highcharts.chart('pie_with_legend_graphic', {
-		    chart: {
-		        plotBackgroundColor: null,
-		        plotBorderWidth: null,
-		        plotShadow: false,
-		        type: 'pie'
-		    },
-			title: {
-			  text: ''
-			},
-		    tooltip: {
-		        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-		    },
-		    accessibility: {
-		        point: {
-		            valueSuffix: '%'
-		        }
-		    },
-		    plotOptions: {
-		        pie: {
-		            allowPointSelect: true,
-		            cursor: 'pointer',
-		            dataLabels: {
-		                enabled: false
-		            },
-		            showInLegend: true
-		        }
-		    },
-		    series: [{
-		        name: 'Brands',
-		        colorByPoint: true,
-		        data: [{
-		            name: total_accrued_txt,
-		            y: +total_accrued, color: '#FFB800'
-		        }, {
-		            name: general_contributions_txt,
-		            y: +general_contributions, color: '#8AB446'
-		        }, {
-		            name: initial_amount_txt,
-		            y: +an_initial_fee, color: '#01213F'
-		        }]
-		    }]
-		});
-*/
 
 		Highcharts.chart('stacked_column_graphic', {
 			chart: {

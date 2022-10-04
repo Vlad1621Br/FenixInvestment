@@ -43,7 +43,7 @@ get_header();
                         <span class="pb-md-4"><?php pll_e('email_contacts'); ?></span>
                         <span><?php the_field( "mail", 11 ); ?></span>
 						<?php if (get_locale() == 'ru_RU') { ?>
-							<a href="phone:<?php the_field( "phone", 11 ); ?>" class="contact_link me-auto">
+							<a href="tel:<?php echo echo_phone_link(); ?>" class="contact_link me-auto">
 								<span class="text-phone">Тел.: </span>
 								<div class="d-xl-block d-none"><?php the_field( "phone", 11 ); ?></div>
 							</a>

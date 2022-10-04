@@ -24,7 +24,7 @@ get_header();
             <div class="col-md-12 col-12 pt-lg-0 pt-1 pb-lg-0 pb-3">
                 <a class="fancybox gr_btn project_btn" href="#contact_form_pop"><?php pll_e('btn_submit_your_application'); ?></a>
                 <div class="fancybox-hidden" style="display:none">
-                    <div id="contact_form_pop">
+                    <div id="contact_form_pop_2">
                       <?php echo do_shortcode('[contact-form-7 id="14" title="Напишите нам"]'); ?>
                     </div>
                 </div>
