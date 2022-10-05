@@ -4,6 +4,7 @@ function validateEmail(email) {
     return re.test(email);
   }
 */
+
 jQuery(document).ready(function ($) {
 
 	new WOW({ mobile:false }).init();
@@ -117,6 +118,99 @@ jQuery(document).ready(function ($) {
 	});
 		
 	});
+
+
+
+
+	window.onload = function () {
+
+		var options = {
+			animationEnabled: true,
+			title:{
+				text: ""
+			},
+			axisX:{
+				valueFormatString: "MMM YYYY",
+				crosshair: {
+					enabled: true,
+					snapToDataPoint: true
+				}
+			},
+			axisY: {
+				title: "",
+				valueFormatString: "##0.00%",
+				crosshair: {
+					enabled: true,
+					snapToDataPoint: true,
+					labelFormatter: function(e) {
+						return CanvasJS.formatNumber(e.value, "##0.00") + "%";
+					}
+				}
+			},
+			data: [{
+				type: "area",
+				xValueFormatString: "MMM YYYY",
+				yValueFormatString: "##0.00%",
+				dataPoints: [
+					{ x: new Date(2018, 00, 01), y: 0.0482 },
+          			{ x: new Date(2018, 01, 01), y: 0.0513 },
+					{ x: new Date(2018, 02, 01), y: 0.0598 },
+					{ x: new Date(2018, 03, 01), y: 0.0556 },
+					{ x: new Date(2018, 04, 01), y: 0.0617 },
+					{ x: new Date(2018, 05, 01), y: 0.0419 },
+					{ x: new Date(2018, 06, 01), y: 0.0434 },
+					{ x: new Date(2018, 07, 01), y: 0.0472 },
+					{ x: new Date(2018, 08, 01), y: 0.0596 },
+					{ x: new Date(2018, 09, 01), y: 0.0545 },
+					{ x: new Date(2018, 10, 01), y: 0.0479 },
+					{ x: new Date(2018, 11, 01), y: 0.0519 },
+					
+					{ x: new Date(2019, 00, 01), y: 0.0419 },
+					{ x: new Date(2019, 01, 01), y: 0.0456 },
+					{ x: new Date(2019, 02, 01), y: 0.0533 },
+					{ x: new Date(2019, 03, 01), y: 0.0581 },
+					{ x: new Date(2019, 04, 01), y: 0.0442 },
+					{ x: new Date(2019, 05, 01), y: 0.0491 },
+					{ x: new Date(2019, 06, 01), y: 0.0588 },
+					{ x: new Date(2019, 07, 01), y: 0.0474 },
+					{ x: new Date(2019, 08, 01), y: 0.0527 },
+					{ x: new Date(2019, 09, 01), y: 0.0615 },
+					{ x: new Date(2019, 10, 01), y: 0.0469 },
+					{ x: new Date(2019, 11, 01), y: 0.0422 },
+
+					{ x: new Date(2020, 00, 01), y: 0.0476 },
+					{ x: new Date(2020, 01, 01), y: 0.0422 },
+					{ x: new Date(2020, 02, 01), y: 0.0549 },
+					{ x: new Date(2020, 03, 01), y: 0.0588 },
+					{ x: new Date(2020, 04, 01), y: 0.0441 },
+					{ x: new Date(2020, 05, 01), y: 0.0511 },
+					{ x: new Date(2020, 06, 01), y: 0.0597 },
+					{ x: new Date(2020, 07, 01), y: 0.0412 },
+					{ x: new Date(2020, 08, 01), y: 0.0485 },
+					{ x: new Date(2020, 09, 01), y: 0.0439 },
+					{ x: new Date(2020, 10, 01), y: 0.0624 },
+					{ x: new Date(2020, 11, 01), y: 0.0528 },
+
+					{ x: new Date(2021, 00, 01), y: 0.0447 },
+					{ x: new Date(2021, 01, 01), y: 0.0415 },
+					{ x: new Date(2021, 02, 01), y: 0.0576 },
+					{ x: new Date(2021, 03, 01), y: 0.0493 },
+					{ x: new Date(2021, 04, 01), y: 0.0436 },
+					{ x: new Date(2021, 05, 01), y: 0.0571 },
+					{ x: new Date(2021, 06, 01), y: 0.0452 },
+					{ x: new Date(2021, 07, 01), y: 0.0567 },
+					{ x: new Date(2021, 08, 01), y: 0.0616 },
+					{ x: new Date(2021, 09, 01), y: 0.0418 },
+					{ x: new Date(2021, 10, 01), y: 0.0535 },
+					{ x: new Date(2021, 11, 01), y: 0.0478 }
+				]
+			}]
+		};
+		
+		$("#chartContainer").CanvasJSChart(options);
+		
+		}
+
 
 
 

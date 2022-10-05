@@ -151,6 +151,19 @@ get_header();
 </section>
 
 
+<!-- profit_graph                   -->
+<section id="profit_graph" class="pb-96">
+	<div class="container">
+		<div class="row pt-96">
+			<div class="title_section line_left_title col-12 mb-4 ps-4 d-flex align-items-center"><?php pll_e('title_profit_graph'); ?></div>			
+
+			<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+
+		</div>
+	</div>
+</section>
+
+
 <!-- calculator-->
 <section id="calculator" class="pb-96">
 	<div class="container">

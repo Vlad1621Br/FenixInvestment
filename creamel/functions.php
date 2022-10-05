@@ -393,6 +393,9 @@ if ( function_exists( 'pll_register_string' ) ) {
 	pll_register_string('title_average_monthly_profitability', 'title_average_monthly_profitability');
 	pll_register_string('btn_start_investing', 'btn_start_investing');
 
+	/*profit_graph*/
+	pll_register_string('title_profit_graph', 'title_profit_graph');
+
 	/*calc*/
 	pll_register_string('title_profit_calculator', 'title_profit_calculator');
 	pll_register_string('subtitle_description_calculator', 'subtitle_description_calculator');

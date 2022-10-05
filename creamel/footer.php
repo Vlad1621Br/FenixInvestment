@@ -186,5 +186,9 @@ if (get_locale() == 'ru_RU') {
 <script src="<?php echo get_template_directory_uri() ?>/js/export-data.js"></script>
 <script src="<?php echo get_template_directory_uri() ?>/js/accessibility.js"></script>
 <script src="<?php echo get_template_directory_uri() ?>/js/calc_graphics.js"></script>
+
+<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+
 </body>
 </html>

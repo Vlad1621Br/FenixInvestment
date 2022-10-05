@@ -1056,7 +1056,7 @@ label { font-size: 14px;}
 /*#fancybox-content { min-width: 500px; min-height: 600px;}*/
 .close_icon_moove { right: 15px!important; }
 
-
+.canvasjs-chart-credit { display: none;}
 .bread_wrap{ visibility: hidden;}
 .bread_wrap span { visibility: visible; }
 .bread_wrap:nth-child(2){ display: none;}

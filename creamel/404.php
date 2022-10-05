@@ -53,10 +53,10 @@ get_header();
 						<div class="title_error_404 col-lg-6 col-12 d-flex flex-column align-items-center justify-content-center py-lg-0 py-5">
 							<span class="title_404 pb-4">404</span>
 							<span class="description_404 pb-4 pt-4">Данная страница не найдена</span>
-							<a href="https://fenix.koyot.info/" class="gr_btn mt-5">На главную</a>
+							<a href="/" class="gr_btn mt-5">На главную</a>
 						</div>
 						<div class="icon_phenix_404 col-lg-6 col-12 d-flex flex-column align-items-center pt-lg-0 pt-5">
-							<img src="https://fenix.koyot.info/wp-content/uploads/2021/11/icon_phenix_404.svg">
+							<img src="/wp-content/uploads/2021/11/icon_phenix_404.svg">
 						</div>
 					</div>
 				</div>
