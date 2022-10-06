@@ -12,10 +12,10 @@ jQuery(document).ready(function ($) {
 		var scroll = $(window).scrollTop();
 		if (scroll >= 61) {//>=, not <=
 			$(".site-header").addClass("fix");
-//			$(".top_head").css("display","none");
+ //			$(".top_head").css("display","none");
 		}else{
 			$(".site-header").removeClass("fix");
-//			$(".top_head").css("display","block");
+ //			$(".top_head").css("display","block");
 		}
 	});
 	
@@ -35,7 +35,7 @@ jQuery(document).ready(function ($) {
       });
     }
 	
-//document.addEventListener( 'wpcf7invalid', function( event ) { //для повления попапа без заполнения и отправки формы
+ //document.addEventListener( 'wpcf7invalid', function( event ) { //для повления попапа без заполнения и отправки формы
 		
 	document.addEventListener( 'wpcf7mailsent', function( event ) {
 	  var id = event.detail.contactFormId;
@@ -59,14 +59,14 @@ jQuery(document).ready(function ($) {
 			$('#fancybox-close').addClass('close_icon_moove');
 	  }
 	});
-/**
+ /**
 	document.addEventListener( 'wpcf7mailsent', function( event ) {
 	  var id = event.detail.contactFormId;
 	  if ( id == 5 ) {
 		  jQuery.fancybox('<div class="response_ok text-center"><div class="f-zag">Спасибо!</div><div class="popup-subtitle">Ваше сообщение отправлено</div></div>');
 	  }
 	});
-*/
+ */
 	$('.fancybox').click(function(){
 		$('#fancybox-close').removeClass('close_icon_moove');
 	});
@@ -94,12 +94,12 @@ jQuery(document).ready(function ($) {
 		else { $(".rmp_menu_trigger").removeClass('toshow_rmp_menu'); }
 	}, false);
 
-		if ($("body").width() < 1200) {
+	if ($("body").width() < 1200) {
 		window.setTimeout(function() {
 		        $(".rmp_menu_trigger").addClass('toshow_rmp_menu');
 		    }, 1000);
 		}
-		else{ $(".rmp_menu_trigger").removeClass('toshow_rmp_menu'); }
+	else{ $(".rmp_menu_trigger").removeClass('toshow_rmp_menu'); }
 
 	
 
@@ -117,99 +117,67 @@ jQuery(document).ready(function ($) {
 		}
 	});
 		
-	});
 
-
-
-
-	window.onload = function () {
-
-		var options = {
-			animationEnabled: true,
-			title:{
-				text: ""
-			},
-			axisX:{
-				valueFormatString: "MMM YYYY",
-				crosshair: {
-					enabled: true,
-					snapToDataPoint: true
-				}
-			},
-			axisY: {
-				title: "",
-				valueFormatString: "##0.00%",
-				crosshair: {
-					enabled: true,
-					snapToDataPoint: true,
-					labelFormatter: function(e) {
-						return CanvasJS.formatNumber(e.value, "##0.00") + "%";
-					}
-				}
-			},
-			data: [{
-				type: "area",
-				xValueFormatString: "MMM YYYY",
-				yValueFormatString: "##0.00%",
-				dataPoints: [
-					{ x: new Date(2018, 00, 01), y: 0.0482 },
-          			{ x: new Date(2018, 01, 01), y: 0.0513 },
-					{ x: new Date(2018, 02, 01), y: 0.0598 },
-					{ x: new Date(2018, 03, 01), y: 0.0556 },
-					{ x: new Date(2018, 04, 01), y: 0.0617 },
-					{ x: new Date(2018, 05, 01), y: 0.0419 },
-					{ x: new Date(2018, 06, 01), y: 0.0434 },
-					{ x: new Date(2018, 07, 01), y: 0.0472 },
-					{ x: new Date(2018, 08, 01), y: 0.0596 },
-					{ x: new Date(2018, 09, 01), y: 0.0545 },
-					{ x: new Date(2018, 10, 01), y: 0.0479 },
-					{ x: new Date(2018, 11, 01), y: 0.0519 },
-					
-					{ x: new Date(2019, 00, 01), y: 0.0419 },
-					{ x: new Date(2019, 01, 01), y: 0.0456 },
-					{ x: new Date(2019, 02, 01), y: 0.0533 },
-					{ x: new Date(2019, 03, 01), y: 0.0581 },
-					{ x: new Date(2019, 04, 01), y: 0.0442 },
-					{ x: new Date(2019, 05, 01), y: 0.0491 },
-					{ x: new Date(2019, 06, 01), y: 0.0588 },
-					{ x: new Date(2019, 07, 01), y: 0.0474 },
-					{ x: new Date(2019, 08, 01), y: 0.0527 },
-					{ x: new Date(2019, 09, 01), y: 0.0615 },
-					{ x: new Date(2019, 10, 01), y: 0.0469 },
-					{ x: new Date(2019, 11, 01), y: 0.0422 },
-
-					{ x: new Date(2020, 00, 01), y: 0.0476 },
-					{ x: new Date(2020, 01, 01), y: 0.0422 },
-					{ x: new Date(2020, 02, 01), y: 0.0549 },
-					{ x: new Date(2020, 03, 01), y: 0.0588 },
-					{ x: new Date(2020, 04, 01), y: 0.0441 },
-					{ x: new Date(2020, 05, 01), y: 0.0511 },
-					{ x: new Date(2020, 06, 01), y: 0.0597 },
-					{ x: new Date(2020, 07, 01), y: 0.0412 },
-					{ x: new Date(2020, 08, 01), y: 0.0485 },
-					{ x: new Date(2020, 09, 01), y: 0.0439 },
-					{ x: new Date(2020, 10, 01), y: 0.0624 },
-					{ x: new Date(2020, 11, 01), y: 0.0528 },
-
-					{ x: new Date(2021, 00, 01), y: 0.0447 },
-					{ x: new Date(2021, 01, 01), y: 0.0415 },
-					{ x: new Date(2021, 02, 01), y: 0.0576 },
-					{ x: new Date(2021, 03, 01), y: 0.0493 },
-					{ x: new Date(2021, 04, 01), y: 0.0436 },
-					{ x: new Date(2021, 05, 01), y: 0.0571 },
-					{ x: new Date(2021, 06, 01), y: 0.0452 },
-					{ x: new Date(2021, 07, 01), y: 0.0567 },
-					{ x: new Date(2021, 08, 01), y: 0.0616 },
-					{ x: new Date(2021, 09, 01), y: 0.0418 },
-					{ x: new Date(2021, 10, 01), y: 0.0535 },
-					{ x: new Date(2021, 11, 01), y: 0.0478 }
-				]
-			}]
-		};
-		
-		$("#chartContainer").CanvasJSChart(options);
-		
+	$('.list-group-area_chart').click(function(){
+        if($('.graph_area_chart').hasClass('hidden')){
+            $('.graph_area_chart').removeClass('hidden');
+            $('.graph_bar_chart').addClass('hidden');
+			$('.list-group-area_chart').addClass('active-tab-graph');
+			$('.list-group-bar_chart').removeClass('active-tab-graph');
+        }        
+    });  
+	$('.list-group-bar_chart').click(function(){
+		if($('.graph_bar_chart').hasClass('hidden')){
+			$('.graph_bar_chart').removeClass('hidden');
+			$('.graph_area_chart').addClass('hidden');
+			$('.list-group-area_chart').removeClass('active-tab-graph');
+			$('.list-group-bar_chart').addClass('active-tab-graph');
 		}
+	});
+	
+
+	let chart_area = {
+		chart: {
+		  height: 400,
+		  type: "area"
+		},
+		dataLabels: {
+		  enabled: false
+		},
+		series: [
+		  {
+			name: "",
+			data: [ 4.82, 5.13, 5.98, 5.56, 6.17, 4.19, 
+					4.34, 4.72, 5.96, 5.45, 4.79, 5.19,
+					4.19, 4.56, 5.33, 5.81, 4.42, 4.91,
+					5.88, 4.74, 5.27, 6.15, 4.69, 4.22
+			]
+		  }
+		],
+		fill: {
+		  type: "gradient",
+		  gradient: {
+			shadeIntensity: 1,
+			opacityFrom: 0.5,
+			opacityTo: 0.7,
+			stops: [0, 90, 100]
+		  }
+		},
+		xaxis: {
+		  categories: [
+			"01/01/2018","01/02/2018","01/03/2018","01/04/2018","01/05/2018","01/06/2018",
+			"01/07/2018","01/08/2018","01/09/2018","01/10/2018","01/11/2018","01/12/2018",
+			"01/01/2019","01/02/2019","01/03/2019","01/04/2019","01/05/2019","01/06/2019",
+			"01/07/2019","01/08/2019","01/09/2019","01/10/2019","01/11/2019","01/12/2019"
+		  ]
+		}
+	  };
+	  let chart_area_Container = new ApexCharts(document.querySelector("#chart_area_Container"), chart_area);
+	  chart_area_Container.render();
+
+
+
+
 
 
 
@@ -257,9 +225,9 @@ jQuery(document).ready(function ($) {
 			slidesToShow: 3,
 			slidesToScroll: 1,
 			adaptiveHeight: false,
-	//		appendDots: jQuery('.slider_greenhouse + .for_dots'),
-	//		prevArrow: '<i class="prev-slick"></i>',
-	//		nextArrow: '<i class="next-slick"></i>',
+	 //		appendDots: jQuery('.slider_greenhouse + .for_dots'),
+	 //		prevArrow: '<i class="prev-slick"></i>',
+	 //		nextArrow: '<i class="next-slick"></i>',
 			responsive: [
 				{
 					breakpoint: 768,
@@ -277,7 +245,7 @@ jQuery(document).ready(function ($) {
 			]
 			
 		});
-		  jQuery('.slider_dots').slick({
+			jQuery('.slider_dots').slick({
 			infinite: true,
 			slidesToShow: 3,
 			slidesToScroll: 1,
@@ -289,9 +257,9 @@ jQuery(document).ready(function ($) {
 			centerPadding: '20%',
 			prevArrow: '<i class="prev-slick"></i>',
 			nextArrow: '<i class="next-slick"></i>',
-		  });
-}
-	
+			});
+	}
+		
 
 
 	if (jQuery('.slider_woodenhouse').length){
@@ -320,7 +288,7 @@ jQuery(document).ready(function ($) {
 			]
 			
 		});
-		  jQuery('.slider_dots_woodenhouse').slick({
+		jQuery('.slider_dots_woodenhouse').slick({
 			infinite: true,
 			slidesToShow: 3,
 			slidesToScroll: 1,
@@ -332,10 +300,21 @@ jQuery(document).ready(function ($) {
 			centerPadding: '20%',
 			prevArrow: '<i class="prev-slick"></i>',
 			nextArrow: '<i class="next-slick"></i>',
-		  });
-}
+		});
+	}
 
-var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  return new bootstrap.Tooltip(tooltipTriggerEl)
-})
+	var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+	var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+	return new bootstrap.Tooltip(tooltipTriggerEl)
+	});
+	
+
+});
+
+
+
+
+
+
+
+
