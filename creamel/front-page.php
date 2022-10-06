@@ -151,14 +151,17 @@ get_header();
 </section>
 
 
-<!-- profit_graph                   -->
+<!-- profit_graph   -->
 <section id="profit_graph" class="pb-96">
 	<div class="container">
 		<div class="row pt-96">
-			<div class="title_section line_left_title col-12 mb-4 ps-4 d-flex align-items-center"><?php pll_e('title_profit_graph'); ?></div>			
-
-			<div id="chartContainer" style="height: 300px; width: 100%;"></div>
-
+			<div class="title_section line_left_title col-12 mb-4 ps-4 d-flex align-items-center"><?php pll_e('title_profit_graph'); ?></div>
+			<ul class="list-group list-group-graph">
+				<li class="list-group-bar_chart active-tab-graph" >Столбчатая диаграмма</li>
+				<li class="list-group-area_chart" >Диаграмма области</li>				
+			</ul>
+			<div class="graph_bar_chart" id="chart_bar_Container" ></div>
+			<div class="graph_area_chart hidden" id="chart_area_Container" ></div>			
 		</div>
 	</div>
 </section>

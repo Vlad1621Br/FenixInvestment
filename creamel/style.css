@@ -457,6 +457,14 @@ body #fancybox-right {right: -10px;}
 .text_risk_info { font-size: 14px;line-height: 26px;}
 #price_list { background: #F1EEE7; }
 
+
+.list-group-graph { flex-direction: row;}
+.list-group-graph li { padding: 20px; list-style-type: none; color: #818181; cursor: pointer;}
+#chart_area_Container, #chart_bar_Container { height: 400px; width: 100%;}
+.active-tab-graph { color: #000!important;}
+.hidden { visibility: hidden; height: 0px!important;}
+
+
 .table-responsive{ max-width: 636px; display: flex; flex-direction: column; background: #fff; width: 100%;}
 .table-responsive thead tr th{ 
 	padding: 42px 10px 42px 85px;
