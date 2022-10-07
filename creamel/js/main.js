@@ -171,14 +171,47 @@ jQuery(document).ready(function ($) {
 			"01/07/2019","01/08/2019","01/09/2019","01/10/2019","01/11/2019","01/12/2019"
 		  ]
 		}
-	  };
-	  let chart_area_Container = new ApexCharts(document.querySelector("#chart_area_Container"), chart_area);
-	  chart_area_Container.render();
+	};
+	let chart_area_Container = new ApexCharts(document.querySelector("#chart_area_Container"), chart_area);
+	chart_area_Container.render();
 
 
 
 
 
+	var chart_bar = {
+		series: [{
+		name: "",
+		data: [	4.82, 5.13, 5.98, 5.56, 6.17, 4.19, 
+				4.34, 4.72, 5.96, 5.45, 4.79, 5.19,
+				4.19, 4.56, 5.33, 5.81, 4.42, 4.91,
+				5.88, 4.74, 5.27, 6.15, 4.69, 4.22
+		]
+	  }],
+		chart: {
+		type: 'bar',
+		height: 400
+	  },
+	  plotOptions: {
+		bar: {
+		  borderRadius: 2,
+		  horizontal: false,
+		}
+	  },
+	  dataLabels: {
+		enabled: false
+	  },
+	  xaxis: {
+		categories: [
+			"01/01/2018","01/02/2018","01/03/2018","01/04/2018","01/05/2018","01/06/2018",
+			"01/07/2018","01/08/2018","01/09/2018","01/10/2018","01/11/2018","01/12/2018",
+			"01/01/2019","01/02/2019","01/03/2019","01/04/2019","01/05/2019","01/06/2019",
+			"01/07/2019","01/08/2019","01/09/2019","01/10/2019","01/11/2019","01/12/2019"
+		],
+	  }
+	};
+	var chart_bar_Container = new ApexCharts(document.querySelector("#chart_bar_Container"), chart_bar);
+	chart_bar_Container.render();
 
 
 
@@ -310,11 +343,4 @@ jQuery(document).ready(function ($) {
 	
 
 });
-
-
-
-
-
-
-
 
