@@ -116,26 +116,46 @@ jQuery(document).ready(function ($) {
 			$('.activate-tab .accordeon-info').fadeIn();
 		}
 	});
-		
 
-	$('.list-group-area_chart').click(function(){
-        if($('.graph_area_chart').hasClass('hidden')){
-            $('.graph_area_chart').removeClass('hidden');
-            $('.graph_bar_chart').addClass('hidden');
-			$('.list-group-area_chart').addClass('active-tab-graph');
-			$('.list-group-bar_chart').removeClass('active-tab-graph');
-        }        
-    });  
-	$('.list-group-bar_chart').click(function(){
-		if($('.graph_bar_chart').hasClass('hidden')){
-			$('.graph_bar_chart').removeClass('hidden');
-			$('.graph_area_chart').addClass('hidden');
-			$('.list-group-area_chart').removeClass('active-tab-graph');
-			$('.list-group-bar_chart').addClass('active-tab-graph');
-		}
-	});
+
+
 	
 
+	let chart_percentage = document.querySelectorAll(".list-control_panel_bar li .investment_income");
+	let chart_date = document.querySelectorAll(".list-control_panel_bar li");
+	let chart_date_month_arrey = ['01.01', '01.02', '01.03', '01.04', '01.05', '01.06', '01.07', '01.08', '01.09', '01.10', '01.11', '01.12'];
+	let chart_percentage_arrey = [];
+	
+	let chart_year = [];
+	for (let i = 0; i < chart_date.length; i++) {
+		chart_year[i] = chart_date[i].outerText; 
+	}
+	let chart_date_arrey = [];
+
+	
+
+	if(chart_percentage.length > 0 && chart_date.length > 0){
+		for (let i = 0; i < chart_percentage.length; i++) {
+			chart_percentage_arrey[i] = chart_percentage[i].textContent;
+		}
+		for (let i = 0; i < chart_date.length; i++) {
+			for (let j = 0; j < chart_date_month_arrey.length; j++){	
+				if((i+j+i*11) < chart_percentage.length){
+					chart_date_arrey[i+j+i*11] = chart_date_month_arrey[j];
+				}				
+			}	
+		}
+		
+		for (let i = 0; i < chart_year.length; i++) { //chart_year.length = 5
+			for (let j = i*12; (i*12 - 1) < j  && j < (i+1)*12 && j < chart_date_arrey.length; j++) { //chart_date_arrey.length =  55
+				chart_date_arrey[j] += '.' + chart_year[i];
+			}	
+		}
+	} 
+
+console.log(chart_date_arrey);
+
+/*
 	let chart_area = {
 		chart: {
 		  height: 400,
@@ -147,11 +167,7 @@ jQuery(document).ready(function ($) {
 		series: [
 		  {
 			name: "",
-			data: [ 4.82, 5.13, 5.98, 5.56, 6.17, 4.19, 
-					4.34, 4.72, 5.96, 5.45, 4.79, 5.19,
-					4.19, 4.56, 5.33, 5.81, 4.42, 4.91,
-					5.88, 4.74, 5.27, 6.15, 4.69, 4.22
-			]
+			data: chart_percentage_arrey
 		  }
 		],
 		fill: {
@@ -164,29 +180,15 @@ jQuery(document).ready(function ($) {
 		  }
 		},
 		xaxis: {
-		  categories: [
-			"01/01/2018","01/02/2018","01/03/2018","01/04/2018","01/05/2018","01/06/2018",
-			"01/07/2018","01/08/2018","01/09/2018","01/10/2018","01/11/2018","01/12/2018",
-			"01/01/2019","01/02/2019","01/03/2019","01/04/2019","01/05/2019","01/06/2019",
-			"01/07/2019","01/08/2019","01/09/2019","01/10/2019","01/11/2019","01/12/2019"
-		  ]
+		  categories: chart_date_arrey
 		}
 	};
-	let chart_area_Container = new ApexCharts(document.querySelector("#chart_area_Container"), chart_area);
-	chart_area_Container.render();
 
 
-
-
-
-	var chart_bar = {
+	let chart_bar = {
 		series: [{
 		name: "",
-		data: [	4.82, 5.13, 5.98, 5.56, 6.17, 4.19, 
-				4.34, 4.72, 5.96, 5.45, 4.79, 5.19,
-				4.19, 4.56, 5.33, 5.81, 4.42, 4.91,
-				5.88, 4.74, 5.27, 6.15, 4.69, 4.22
-		]
+		data: bar_year_percentage
 	  }],
 		chart: {
 		type: 'bar',
@@ -202,16 +204,88 @@ jQuery(document).ready(function ($) {
 		enabled: false
 	  },
 	  xaxis: {
-		categories: [
-			"01/01/2018","01/02/2018","01/03/2018","01/04/2018","01/05/2018","01/06/2018",
-			"01/07/2018","01/08/2018","01/09/2018","01/10/2018","01/11/2018","01/12/2018",
-			"01/01/2019","01/02/2019","01/03/2019","01/04/2019","01/05/2019","01/06/2019",
-			"01/07/2019","01/08/2019","01/09/2019","01/10/2019","01/11/2019","01/12/2019"
-		],
+		categories: bar_year_date
 	  }
 	};
-	var chart_bar_Container = new ApexCharts(document.querySelector("#chart_bar_Container"), chart_bar);
+
+	let chart_area_Container = new ApexCharts(document.querySelector("#chart_area_Container"), chart_area);
+	let chart_bar_Container = new ApexCharts(document.querySelector("#chart_bar_Container"), chart_bar);
+	
 	chart_bar_Container.render();
+*/
+	$('.list-group-area_chart').click(function(){
+        if($('.graph_area_chart').hasClass('hidden')){
+            $('.graph_area_chart').removeClass('hidden');
+            $('.graph_bar_chart').addClass('hidden');
+			$('.list-group-area_chart').addClass('active-tab-graph');
+			$('.list-group-bar_chart').removeClass('active-tab-graph');
+			chart_bar_Container.destroy();
+			chart_area_Container = new ApexCharts(document.querySelector("#chart_area_Container"), chart_area);
+			chart_area_Container.render();
+        }        
+    });  
+	$('.list-group-bar_chart').click(function(){
+		if($('.graph_bar_chart').hasClass('hidden')){
+			$('.graph_bar_chart').removeClass('hidden');
+			$('.graph_area_chart').addClass('hidden');
+			$('.list-group-area_chart').removeClass('active-tab-graph');
+			$('.list-group-bar_chart').addClass('active-tab-graph');
+			chart_area_Container.destroy();
+			chart_bar_Container = new ApexCharts(document.querySelector("#chart_bar_Container"), chart_bar);
+			chart_bar_Container.render();
+			
+		}
+	});
+
+	
+
+
+/*
+	//bar chart 
+	$('.2018').click(function(){
+		$('.graph_bar_chart .list-control_panel li').removeClass('active-tab-year'); 
+		$('.2018').addClass('active-tab-year');
+		bar_year_percentage = [];
+		bar_year_date = [];
+		
+		chart_bar_Container.destroy();
+		for(let i = 0; i < 12; i++){
+			bar_year_percentage[i] = chart_percentage_arrey[i];
+			bar_year_date[i] = chart_date_arrey[i];
+		}
+
+		chart_bar.series[0].data = bar_year_percentage;
+		chart_bar.xaxis.categories = bar_year_date;
+		chart_bar_Container = new ApexCharts(document.querySelector("#chart_bar_Container"), chart_bar);
+		chart_bar_Container.render();
+	});
+
+*/
+
+
+	//area chart
+	$('.area_year_all').click(function(){
+		$('.graph_area_chart .list-control_panel li').removeClass('active-tab-year'); 
+		$('.area_year_all').addClass('active-tab-year');
+		
+	});
+	$('.area_year_last_year').click(function(){
+		$('.graph_area_chart .list-control_panel li').removeClass('active-tab-year');
+		$('.area_year_last_year').addClass('active-tab-year');
+
+	});
+	$('.area_year_last_six').click(function(){
+		$('.graph_area_chart .list-control_panel li').removeClass('active-tab-year');
+		$('.area_year_last_six').addClass('active-tab-year');
+
+	});
+	$('.area_year_last_three').click(function(){
+		$('.graph_area_chart .list-control_panel li').removeClass('active-tab-year');
+		$('.area_year_last_three').addClass('active-tab-year');
+
+	});
+
+
 
 
 

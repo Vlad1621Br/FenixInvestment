@@ -460,9 +460,18 @@ body #fancybox-right {right: -10px;}
 
 .list-group-graph { flex-direction: row;}
 .list-group-graph li { padding: 20px; list-style-type: none; color: #818181; cursor: pointer;}
-#chart_area_Container, #chart_bar_Container { height: 400px; width: 100%;}
+.list-group-graph li:hover { color: #000!important; }
+#chart_area_Container, #chart_bar_Container { max-height: 400px!important; width: 100%;}
 .active-tab-graph { color: #000!important;}
-.hidden { visibility: hidden; height: 0px!important;}
+.hidden { display: none;}
+
+.list-control_panel_bar { display: flex; flex-direction: row; }
+.list-control_panel_bar li { background-color: #FAF7EF; border-radius: 1000px; padding: 15px 25px; margin: 0px 10px; list-style-type: none; color: #818181; cursor: pointer; }
+.list-control_panel_bar li:hover { color: #000!important; }
+.list-control_panel_area { display: flex; flex-direction: row; }
+.list-control_panel_area li { background-color: #FAF7EF; border-radius: 1000px; padding: 15px 25px; margin: 0px 10px; list-style-type: none; color: #818181; cursor: pointer; }
+.list-control_panel_area li:hover { color: #000!important; }
+.active-tab-year { background-color: #F1EEE7!important; color: #000!important;}
 
 
 .table-responsive{ max-width: 636px; display: flex; flex-direction: column; background: #fff; width: 100%;}

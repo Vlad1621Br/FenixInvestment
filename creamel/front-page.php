@@ -160,8 +160,36 @@ get_header();
 				<li class="list-group-bar_chart active-tab-graph" >Столбчатая диаграмма</li>
 				<li class="list-group-area_chart" >Диаграмма области</li>				
 			</ul>
-			<div class="graph_bar_chart" id="chart_bar_Container" ></div>
-			<div class="graph_area_chart hidden" id="chart_area_Container" ></div>			
+
+			<!-- повторитель данных о прибыли          --> 
+
+			<div class="graph_bar_chart">
+				<ul class="list-control_panel_bar"><!--active-tab-year (add css class -first-child) -->
+					<?php if ( have_rows( 'repeater_profit_data' ) ) : ?>
+						<?php while ( have_rows( 'repeater_profit_data' ) ) : the_row(); ?>
+							<li class="<?php the_sub_field( 'year_income' ); ?>" ><?php the_sub_field( 'year_income' ); ?>
+								<?php if ( have_rows( 'profit_data' ) ) : ?>
+									<?php while ( have_rows( 'profit_data' ) ) : the_row(); ?>
+										<span class = "investment_income d-none"><?php the_sub_field( 'investment_income_percentage' ); ?></span>
+									<?php endwhile; ?>
+								<?php endif; ?>
+							</li>	
+						<?php endwhile; ?>
+					<?php endif; ?>
+				</ul>		
+				<div id="chart_bar_Container" ></div>
+			</div>
+
+			<div class="graph_area_chart hidden">
+				<ul class="list-control_panel_area">
+					<li class="area_year_all active-tab-year" >All period</li>
+					<li class="area_year_last_year" >last year</li>
+					<li class="area_year_last_six" >last 6 month</li>
+					<li class="area_year_last_three" >last 3 month</li>
+				</ul>
+				<div id="chart_area_Container" ></div>
+			</div>
+										
 		</div>
 	</div>
 </section>
