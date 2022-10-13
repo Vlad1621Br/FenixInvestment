@@ -118,8 +118,7 @@ jQuery(document).ready(function ($) {
 	});
 
 
-
-	
+	$(".list-control_panel_bar li:last-child").addClass("active-tab-year");
 
 	let chart_percentage = document.querySelectorAll(".list-control_panel_bar li .investment_income");
 	let chart_date = document.querySelectorAll(".list-control_panel_bar li");
@@ -132,8 +131,6 @@ jQuery(document).ready(function ($) {
 	}
 	let chart_date_arrey = [];
 
-	
-
 	if(chart_percentage.length > 0 && chart_date.length > 0){
 		for (let i = 0; i < chart_percentage.length; i++) {
 			chart_percentage_arrey[i] = chart_percentage[i].textContent;
@@ -145,17 +142,25 @@ jQuery(document).ready(function ($) {
 				}				
 			}	
 		}
-		
-		for (let i = 0; i < chart_year.length; i++) { //chart_year.length = 5
-			for (let j = i*12; (i*12 - 1) < j  && j < (i+1)*12 && j < chart_date_arrey.length; j++) { //chart_date_arrey.length =  55
+		for (let i = 0; i < chart_year.length; i++) { 
+			for (let j = i*12; (i*12 - 1) < j  && j < (i+1)*12 && j < chart_date_arrey.length; j++) { 
 				chart_date_arrey[j] += '.' + chart_year[i];
 			}	
 		}
 	} 
+	
+	let bar_year_percentage = [];
+	let bar_year_date = [];
+	let residue = chart_date_arrey.length % 12;
+	if (residue === 0 ){ residue = 12; }
+	let count = 0;
+	for ( let i = chart_date_arrey.length - residue; i < chart_date_arrey.length; i++) {
+		bar_year_percentage[count] = chart_percentage_arrey[i];
+		bar_year_date[count] = chart_date_arrey[i];
+		count++;
+	}
+	
 
-console.log(chart_date_arrey);
-
-/*
 	let chart_area = {
 		chart: {
 		  height: 400,
@@ -188,7 +193,7 @@ console.log(chart_date_arrey);
 	let chart_bar = {
 		series: [{
 		name: "",
-		data: bar_year_percentage
+		data: bar_year_percentage 
 	  }],
 		chart: {
 		type: 'bar',
@@ -210,9 +215,9 @@ console.log(chart_date_arrey);
 
 	let chart_area_Container = new ApexCharts(document.querySelector("#chart_area_Container"), chart_area);
 	let chart_bar_Container = new ApexCharts(document.querySelector("#chart_bar_Container"), chart_bar);
-	
+
 	chart_bar_Container.render();
-*/
+
 	$('.list-group-area_chart').click(function(){
         if($('.graph_area_chart').hasClass('hidden')){
             $('.graph_area_chart').removeClass('hidden');
@@ -237,52 +242,93 @@ console.log(chart_date_arrey);
 		}
 	});
 
-	
-
-
-/*
 	//bar chart 
-	$('.2018').click(function(){
-		$('.graph_bar_chart .list-control_panel li').removeClass('active-tab-year'); 
-		$('.2018').addClass('active-tab-year');
-		bar_year_percentage = [];
-		bar_year_date = [];
-		
-		chart_bar_Container.destroy();
-		for(let i = 0; i < 12; i++){
-			bar_year_percentage[i] = chart_percentage_arrey[i];
-			bar_year_date[i] = chart_date_arrey[i];
-		}
+	chart_date.forEach(function(item){
+		item.addEventListener('click', function(){
+			$('.graph_bar_chart .list-control_panel_bar li').removeClass('active-tab-year');
+			let name = "active-tab-year";
+			this.className += " " + name;
+			bar_year_percentage = [];
+			bar_year_date = [];
+			chart_bar_Container.destroy();
+			let bur_count = 0;
+			let index  = Number(this.innerText) - 2018;
+			for(let i = index * 12; (index * 12 - 1) < i && i < ((index+1) * 12) && i < chart_percentage.length; i++){
+				bar_year_percentage[bur_count] = chart_percentage_arrey[i];
+				bar_year_date[bur_count] = chart_date_arrey[i];
+				bur_count++;
+			}
+			chart_bar.series[0].data = bar_year_percentage;
+			chart_bar.xaxis.categories = bar_year_date;
+			chart_bar_Container = new ApexCharts(document.querySelector("#chart_bar_Container"), chart_bar);
+			chart_bar_Container.render();
+		})
+	})
 
-		chart_bar.series[0].data = bar_year_percentage;
-		chart_bar.xaxis.categories = bar_year_date;
-		chart_bar_Container = new ApexCharts(document.querySelector("#chart_bar_Container"), chart_bar);
-		chart_bar_Container.render();
-	});
-
-*/
-
-
+console.log(chart_percentage_arrey);
+console.log(chart_date_arrey);
 	//area chart
 	$('.area_year_all').click(function(){
-		$('.graph_area_chart .list-control_panel li').removeClass('active-tab-year'); 
+		$('.graph_area_chart .list-control_panel_area li').removeClass('active-tab-year'); 
 		$('.area_year_all').addClass('active-tab-year');
+		chart_area_Container.destroy();
+		chart_area.series[0].data = chart_percentage_arrey;
+		chart_area.xaxis.categories = chart_date_arrey;
+		chart_area_Container = new ApexCharts(document.querySelector("#chart_area_Container"), chart_area);
+		chart_area_Container.render();
 		
 	});
 	$('.area_year_last_year').click(function(){
-		$('.graph_area_chart .list-control_panel li').removeClass('active-tab-year');
+		$('.graph_area_chart .list-control_panel_area li').removeClass('active-tab-year');
 		$('.area_year_last_year').addClass('active-tab-year');
+		let area_last_year= [];
+		let data_last_year= [];
+		chart_area_Container.destroy();
+		let count = 0;
+		for (let i = chart_percentage_arrey.length - 12; i < chart_percentage_arrey.length; i++) {
+			area_last_year[count] =  chart_percentage_arrey[i];
+			chart_date_arrey[count] = chart_date_arrey[i];
+			count++;
+		}
+		chart_area.series[0].data = area_last_year;
+		chart_area.xaxis.categories = chart_date_arrey;
+		chart_area_Container = new ApexCharts(document.querySelector("#chart_area_Container"), chart_area);
+		chart_area_Container.render();
 
 	});
 	$('.area_year_last_six').click(function(){
-		$('.graph_area_chart .list-control_panel li').removeClass('active-tab-year');
+		$('.graph_area_chart .list-control_panel_area li').removeClass('active-tab-year');
 		$('.area_year_last_six').addClass('active-tab-year');
-
+		let area_last_year= [];
+		let data_last_year= [];
+		chart_area_Container.destroy();
+		let count = 0;
+		for (let i = chart_percentage_arrey.length - 6; i < chart_percentage_arrey.length; i++) {
+			area_last_year[count] =  chart_percentage_arrey[i];
+			chart_date_arrey[count] =chart_date_arrey[i];
+			count++;
+		}
+		chart_area.series[0].data = area_last_year;
+		chart_area.xaxis.categories = chart_date_arrey;
+		chart_area_Container = new ApexCharts(document.querySelector("#chart_area_Container"), chart_area);
+		chart_area_Container.render();
 	});
 	$('.area_year_last_three').click(function(){
-		$('.graph_area_chart .list-control_panel li').removeClass('active-tab-year');
+		$('.graph_area_chart .list-control_panel_area li').removeClass('active-tab-year');
 		$('.area_year_last_three').addClass('active-tab-year');
-
+		let area_last_year= [];
+		let data_last_year= [];
+		chart_area_Container.destroy();
+		let count = 0;
+		for (let i = chart_percentage_arrey.length - 3; i < chart_percentage_arrey.length; i++) {
+			area_last_year[count] = chart_percentage_arrey[i];
+			chart_date_arrey[count] = chart_date_arrey[i];
+			count++;
+		}
+		chart_area.series[0].data = area_last_year;
+		chart_area.xaxis.categories = chart_date_arrey;
+		chart_area_Container = new ApexCharts(document.querySelector("#chart_area_Container"), chart_area);
+		chart_area_Container.render();
 	});
 
 
