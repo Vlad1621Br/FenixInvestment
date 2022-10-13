@@ -330,6 +330,8 @@ console.log(chart_date_arrey);
 		chart_area_Container = new ApexCharts(document.querySelector("#chart_area_Container"), chart_area);
 		chart_area_Container.render();
 	});
+	$('.list-control_panel_bar li .investment_income').remove();
+
 
 
 

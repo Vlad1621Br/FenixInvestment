@@ -399,6 +399,13 @@ if ( function_exists( 'pll_register_string' ) ) {
 
 	/*profit_graph*/
 	pll_register_string('title_profit_graph', 'title_profit_graph');
+	pll_register_string('profit_bar_chart', 'profit_bar_chart');
+	pll_register_string('profit_area_chart', 'profit_area_chart');
+
+	pll_register_string('area_chart_all_period', 'area_chart_all_period');
+	pll_register_string('area_chart_last_year', 'area_chart_last_year');
+	pll_register_string('area_chart_last_six', 'area_chart_last_six');
+	pll_register_string('area_chart_last_three', 'area_chart_last_three');
 
 	/*calc*/
 	pll_register_string('title_profit_calculator', 'title_profit_calculator');
