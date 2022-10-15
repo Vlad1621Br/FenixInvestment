@@ -265,8 +265,7 @@ jQuery(document).ready(function ($) {
 		})
 	})
 
-console.log(chart_percentage_arrey);
-console.log(chart_date_arrey);
+
 	//area chart
 	$('.area_year_all').click(function(){
 		$('.graph_area_chart .list-control_panel_area li').removeClass('active-tab-year'); 
@@ -276,6 +275,7 @@ console.log(chart_date_arrey);
 		chart_area.xaxis.categories = chart_date_arrey;
 		chart_area_Container = new ApexCharts(document.querySelector("#chart_area_Container"), chart_area);
 		chart_area_Container.render();
+		//$('.apexcharts-xaxis-texts-g>text:nth-child(even)').addClass('d-none');
 		
 	});
 	$('.area_year_last_year').click(function(){
@@ -331,9 +331,11 @@ console.log(chart_date_arrey);
 		chart_area_Container.render();
 	});
 	$('.list-control_panel_bar li .investment_income').remove();
-
-
-
+/*
+	if ( $(".list-group-area_chart").hasClass("active-tab-graph") && $(".area_year_all").hasClass("active-tab-year") ) {
+		$('.apexcharts-xaxis-texts-g>text:nth-child(even)').addClass('d-none');
+	}
+*/
 
 
 

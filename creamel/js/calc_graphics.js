@@ -47,7 +47,7 @@ jQuery(document).ready(function ($) {
 		let total_amount_with_interest = 0; //Итоговая сумма с учетом процентов
 		let sum_interest = 0;			// Проценты по депозиту общий
 		let base_accrual_amount = 0;
-		let reinvest_totl;
+		let total_amount = [];
 		let month_or_year_n = []
 		let j;
 
@@ -62,6 +62,7 @@ jQuery(document).ready(function ($) {
 						deposit_interest = ((an_initial_fee + sum_interest + monthly_installment*i) * month_interest_rate); // Проценты по депозиту
 						sum_interest += deposit_interest; // Проценты по депозиту общий
 						total_amount_with_interest = an_initial_fee + monthly_installment*i + sum_interest;
+						total_amount [i] = Number(total_amount_with_interest.toFixed(2));
 						$(".table_deposit_accrual_scheme > tbody").append("<tr><td>"+(i+1)+"</td><td>"+base_accrual_amount.toFixed(2)+"</td><td>"+deposit_interest.toFixed(2)+"</td><td>"+total_amount_with_interest.toFixed(2)+"</td></tr>");
 						if ((i+1) % 12 === 0 && i > 0) {
 							j = (i+1) / 12;
@@ -83,7 +84,8 @@ jQuery(document).ready(function ($) {
 						base_accrual_amount = (an_initial_fee + sum_interest + monthly_installment*(i));
 						deposit_interest = ((an_initial_fee + sum_interest + monthly_installment*i) * month_interest_rate); // Проценты по депозиту
 						sum_interest += deposit_interest; // Проценты по депозиту общий
-						total_amount_with_interest = an_initial_fee + monthly_installment*i + sum_interest;						
+						total_amount_with_interest = an_initial_fee + monthly_installment*i + sum_interest;
+						total_amount [i] = Number(total_amount_with_interest.toFixed(2));				
 						$(".table_deposit_accrual_scheme > tbody").append("<tr><td>"+(i+1)+"</td><td>"+base_accrual_amount.toFixed(2)+"</td><td>"+deposit_interest.toFixed(2)+"</td><td>"+total_amount_with_interest.toFixed(2)+"</td></tr>");
 						grafic_accrued_year[i] = +deposit_interest.toFixed(2);	//процент
 						grafic_general_contribut[i] = i * monthly_installment;	//общий взнос
@@ -105,7 +107,8 @@ jQuery(document).ready(function ($) {
 						base_accrual_amount = (an_initial_fee + sum_interest + monthly_installment*(i));
 						deposit_interest = ((an_initial_fee + sum_interest + monthly_installment*i) * month_interest_rate); // Проценты по депозиту
 						sum_interest += deposit_interest; // Проценты по депозиту общий
-						total_amount_with_interest = an_initial_fee + monthly_installment*i + sum_interest;						
+						total_amount_with_interest = an_initial_fee + monthly_installment*i + sum_interest;
+						total_amount [i] = Number(total_amount_with_interest.toFixed(2));	
 						$(".table_deposit_accrual_scheme > tbody").append("<tr><td>"+(i+1)+"</td><td>"+base_accrual_amount.toFixed(2)+"</td><td>"+deposit_interest.toFixed(2)+"</td><td>"+total_amount_with_interest.toFixed(2)+"</td></tr>");
 						if ((i+1) % 12 === 0 && i > 0) {
 							j = (i+1) / 12;
@@ -128,7 +131,8 @@ jQuery(document).ready(function ($) {
 						base_accrual_amount = (an_initial_fee + sum_interest + monthly_installment*(i));
 						deposit_interest = ((an_initial_fee + sum_interest + monthly_installment*i) * month_interest_rate); // Проценты по депозиту
 						sum_interest += deposit_interest; // Проценты по депозиту общий
-						total_amount_with_interest = an_initial_fee + monthly_installment*i + sum_interest;						
+						total_amount_with_interest = an_initial_fee + monthly_installment*i + sum_interest;
+						total_amount [i] = Number(total_amount_with_interest.toFixed(2));					
 						$(".table_deposit_accrual_scheme > tbody").append("<tr><td>"+(i+1)+"</td><td>"+base_accrual_amount.toFixed(2)+"</td><td>"+deposit_interest.toFixed(2)+"</td><td>"+total_amount_with_interest.toFixed(2)+"</td></tr>");
 						grafic_accrued_year[i] = +(deposit_interest.toFixed(2));	//процент
 						grafic_general_contribut[i] = i * monthly_installment;	//общий взнос
@@ -147,7 +151,7 @@ jQuery(document).ready(function ($) {
 				total_accrued = +sum_interest.toFixed(2);
 				general_contributions = +(total_amount_with_interest.toFixed(2) - sum_interest.toFixed(2)).toFixed(2);
 
-
+			
 
 		Highcharts.chart('stacked_column_graphic', {
 			chart: {
@@ -184,15 +188,18 @@ jQuery(document).ready(function ($) {
 					}
 				}
 			},
-			series: [{
-			name: total_accrued_txt,
-			data: grafic_accrued_year, color: '#FFB800'
-			}, {
+			series: [ {
 			name: general_contributions_txt,
-			data: grafic_general_contribut, color: '#8AB446'
+			data: total_amount, color: '#8AB446',		//grafic_general_contribut
+			legendIndex:2
+			},{
+			name: total_accrued_txt,
+			data: grafic_accrued_year, color: '#ffe600',
+			legendIndex:1
 			}, {
 			name: initial_amount_txt,
-			data: grafic_initial_fee, color: '#01213F'
+			data: grafic_initial_fee, color: '#0e4f8c',
+			legendIndex:0
 			}]
 
 		});
