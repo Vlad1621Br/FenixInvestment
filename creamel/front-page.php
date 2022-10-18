@@ -228,6 +228,7 @@ get_header();
 						<tr>
                             <th><?php pll_e('year'); ?></th>
                             <th><?php pll_e('base_amount_of_charges'); ?></th>
+							<th><?php pll_e('entire_monthly_fee'); ?></th>
                             <th><?php pll_e('deposit_interest'); ?></th>
                             <th><?php pll_e('total_amount_including_interest'); ?></th>
 						</tr>
@@ -242,6 +243,7 @@ get_header();
 				<div class="initial_amount d-none"><?php pll_e('initial_amount'); ?></div>
 				<div class="schedule_month d-none"><?php pll_e('schedule_month'); ?></div>
 				<div class="schedule_year d-none"><?php pll_e('schedule_year'); ?></div>
+				<div class="total_monthly_fee d-none"><?php pll_e('total_monthly_fee'); ?></div>
 			</div>
 		</div>
 	</div>

@@ -24,6 +24,7 @@ jQuery(document).ready(function ($) {
 		let total_calc = $('.total_calc').text();
 		let total_accrued_txt = $('.total_accrued').text();
 		let general_contributions_txt = $('.general_contributions').text();
+		let total_monthly_fee_txt = $('.total_monthly_fee').text();
 		let initial_amount_txt = $('.initial_amount').text();
 		let month_or_year_word;
 
@@ -50,7 +51,7 @@ jQuery(document).ready(function ($) {
 		let total_amount = [];
 		let month_or_year_n = []
 		let j;
-
+		let table_general_contribut;
 
 			if(rate_per_year_month == 12){		// проверка процентной ставки в годах ли
 				if (term_year_month == 12) {
@@ -63,15 +64,17 @@ jQuery(document).ready(function ($) {
 						sum_interest += deposit_interest; // Проценты по депозиту общий
 						total_amount_with_interest = an_initial_fee + monthly_installment*i + sum_interest;
 						total_amount [i] = Number(total_amount_with_interest.toFixed(2));
-						$(".table_deposit_accrual_scheme > tbody").append("<tr><td>"+(i+1)+"</td><td>"+base_accrual_amount.toFixed(2)+"</td><td>"+deposit_interest.toFixed(2)+"</td><td>"+total_amount_with_interest.toFixed(2)+"</td></tr>");
 						if ((i+1) % 12 === 0 && i > 0) {
 							j = (i+1) / 12;
 							grafic_accrued_year[j-1] = +(deposit_interest.toFixed(2));		//процент
 							grafic_general_contribut[j-1] = i * monthly_installment;	//общий взнос
+							table_general_contribut = i * monthly_installment;
 							grafic_initial_fee[j-1] = an_initial_fee;
 							month_or_year_n[j-1] = j;
 							month_or_year_n[j-1] += ' ' + month_or_year_word;
 						}
+						
+						$(".table_deposit_accrual_scheme > tbody").append("<tr><td>"+(i+1)+"</td><td>"+base_accrual_amount.toFixed(2)+"</td><td>"+table_general_contribut.toFixed(2)+"</td><td>"+deposit_interest.toFixed(2)+"</td><td>"+total_amount_with_interest.toFixed(2)+"</td></tr>");
 					}
 					$('#fieldname11_1').val(total_amount_with_interest.toFixed(2));
 					$('#fieldname22_1').val(sum_interest.toFixed(2));
@@ -86,12 +89,14 @@ jQuery(document).ready(function ($) {
 						sum_interest += deposit_interest; // Проценты по депозиту общий
 						total_amount_with_interest = an_initial_fee + monthly_installment*i + sum_interest;
 						total_amount [i] = Number(total_amount_with_interest.toFixed(2));				
-						$(".table_deposit_accrual_scheme > tbody").append("<tr><td>"+(i+1)+"</td><td>"+base_accrual_amount.toFixed(2)+"</td><td>"+deposit_interest.toFixed(2)+"</td><td>"+total_amount_with_interest.toFixed(2)+"</td></tr>");
 						grafic_accrued_year[i] = +deposit_interest.toFixed(2);	//процент
 						grafic_general_contribut[i] = i * monthly_installment;	//общий взнос
+						table_general_contribut = i * monthly_installment;
 						grafic_initial_fee[i] = an_initial_fee;					//начальный взнос
 						month_or_year_n[i] = i+1;
 						month_or_year_n[i] += ' ' + month_or_year_word;
+						
+						$(".table_deposit_accrual_scheme > tbody").append("<tr><td>"+(i+1)+"</td><td>"+base_accrual_amount.toFixed(2)+"</td><td>"+table_general_contribut.toFixed(2)+"</td><td>"+deposit_interest.toFixed(2)+"</td><td>"+total_amount_with_interest.toFixed(2)+"</td></tr>");
 					}
 
 					$('#fieldname11_1').val(total_amount_with_interest.toFixed(2));
@@ -109,15 +114,17 @@ jQuery(document).ready(function ($) {
 						sum_interest += deposit_interest; // Проценты по депозиту общий
 						total_amount_with_interest = an_initial_fee + monthly_installment*i + sum_interest;
 						total_amount [i] = Number(total_amount_with_interest.toFixed(2));	
-						$(".table_deposit_accrual_scheme > tbody").append("<tr><td>"+(i+1)+"</td><td>"+base_accrual_amount.toFixed(2)+"</td><td>"+deposit_interest.toFixed(2)+"</td><td>"+total_amount_with_interest.toFixed(2)+"</td></tr>");
 						if ((i+1) % 12 === 0 && i > 0) {
 							j = (i+1) / 12;
 							grafic_accrued_year[j-1] = +(deposit_interest.toFixed(2));		//процент
 							grafic_general_contribut[j-1] = i * monthly_installment;	//общий взнос
+							table_general_contribut = i * monthly_installment;
 							grafic_initial_fee[j-1] = an_initial_fee;
 							month_or_year_n[j-1] = j;
 							month_or_year_n[j-1] += ' ' + month_or_year_word;
 						}
+						
+						$(".table_deposit_accrual_scheme > tbody").append("<tr><td>"+(i+1)+"</td><td>"+base_accrual_amount.toFixed(2)+"</td><td>"+table_general_contribut.toFixed(2)+"</td><td>"+deposit_interest.toFixed(2)+"</td><td>"+total_amount_with_interest.toFixed(2)+"</td></tr>");
 					}
 
 					$('#fieldname11_1').val(total_amount_with_interest.toFixed(2));
@@ -133,12 +140,13 @@ jQuery(document).ready(function ($) {
 						sum_interest += deposit_interest; // Проценты по депозиту общий
 						total_amount_with_interest = an_initial_fee + monthly_installment*i + sum_interest;
 						total_amount [i] = Number(total_amount_with_interest.toFixed(2));					
-						$(".table_deposit_accrual_scheme > tbody").append("<tr><td>"+(i+1)+"</td><td>"+base_accrual_amount.toFixed(2)+"</td><td>"+deposit_interest.toFixed(2)+"</td><td>"+total_amount_with_interest.toFixed(2)+"</td></tr>");
 						grafic_accrued_year[i] = +(deposit_interest.toFixed(2));	//процент
 						grafic_general_contribut[i] = i * monthly_installment;	//общий взнос
+						table_general_contribut = i * monthly_installment;
 						grafic_initial_fee[i] = an_initial_fee;					//начальный взнос
 						month_or_year_n[i] = i+1;
 						month_or_year_n[i] += ' ' + month_or_year_word;
+						$(".table_deposit_accrual_scheme > tbody").append("<tr><td>"+(i+1)+"</td><td>"+base_accrual_amount.toFixed(2)+"</td><td>"+table_general_contribut.toFixed(2)+"</td><td>"+deposit_interest.toFixed(2)+"</td><td>"+total_amount_with_interest.toFixed(2)+"</td></tr>");
 					}
 
 					$('#fieldname11_1').val(total_amount_with_interest.toFixed(2));
@@ -146,7 +154,7 @@ jQuery(document).ready(function ($) {
 				}
 			}
 			$(".table_deposit_accrual_scheme > tfoot > tr").remove();
-			$(".table_deposit_accrual_scheme > tfoot").append("<tr><td>"+total_calc+"</td><td> </td><td>"+sum_interest.toFixed(2)+"</td><td>"+total_amount_with_interest.toFixed(2)+"</td></tr>");
+			$(".table_deposit_accrual_scheme > tfoot").append("<tr><td>"+total_calc+"</td><td><td> </td></td><td>"+sum_interest.toFixed(2)+"</td><td>"+total_amount_with_interest.toFixed(2)+"</td></tr>");
 				
 				total_accrued = +sum_interest.toFixed(2);
 				general_contributions = +(total_amount_with_interest.toFixed(2) - sum_interest.toFixed(2)).toFixed(2);
@@ -189,17 +197,21 @@ jQuery(document).ready(function ($) {
 				}
 			},
 			series: [ {
-			name: general_contributions_txt,
-			data: total_amount, color: '#8AB446',		//grafic_general_contribut
-			legendIndex:2
+				name: general_contributions_txt,
+				data: total_amount, color: '#8AB446',		//grafic_general_contribut   total_monthly_fee_txt
+				legendIndex:3
 			},{
-			name: total_accrued_txt,
-			data: grafic_accrued_year, color: '#ffe600',
-			legendIndex:1
+				name: total_accrued_txt,
+				data: grafic_accrued_year, color: '#ffe600',
+				legendIndex:2
+			},{
+				name: total_monthly_fee_txt,
+				data: grafic_general_contribut, color: '#9441f2',
+				legendIndex:1
 			}, {
-			name: initial_amount_txt,
-			data: grafic_initial_fee, color: '#0e4f8c',
-			legendIndex:0
+				name: initial_amount_txt,
+				data: grafic_initial_fee, color: '#196ab5',
+				legendIndex:0
 			}]
 
 		});

@@ -413,10 +413,12 @@ if ( function_exists( 'pll_register_string' ) ) {
 
 	pll_register_string('deposit_accrual_scheme', 'deposit_accrual_scheme');
 	pll_register_string('year', 'year');
-	pll_register_string('base_amount_of_charges', 'base_amount_of_charges');
+	pll_register_string('entire_monthly_fee', 'entire_monthly_fee');
+
 	pll_register_string('deposit_interest', 'deposit_interest');
 	pll_register_string('total_amount_including_interest', 'total_amount_including_interest');
 	pll_register_string('total_calc', 'total_calc');
+	pll_register_string('total_monthly_fee', 'total_monthly_fee');
 
 	pll_register_string('total_accrued', 'total_accrued');
 	pll_register_string('general_contributions', 'general_contributions');
