@@ -35,13 +35,13 @@ get_header();
 
 <section id="our_projects" >
     <div class="container">
-        <div class="row pb-96 flex-row-reverse">
+        <div class="row pb-96 flex-row">
             <?php global $wp_query;
-            $args = ['post_type' => 'projects','posts_per_page' => 2,]; 
+            $args = ['post_type' => 'projects','posts_per_page' => 6,]; 
             $wp_query = new WP_Query($args);
             $i=1;while ( $wp_query->have_posts() ) : $wp_query->the_post();
             ?>
-            <div id="post-<?php the_ID(); ?>" class="col-lg-6 col-12 project_item mb-md-0 mb-4">                
+            <div id="post-<?php the_ID(); ?>" class="col-lg-6 col-12 project_item mb-4">                
                 <a href="<?php echo esc_url( get_permalink() ); ?>" class="box_shadow p-4">                 
                     <div class="block_project">
                         <div class="project_img"><img src="<?php the_post_thumbnail_url(); ?>"></div>

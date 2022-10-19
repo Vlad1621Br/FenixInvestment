@@ -123,13 +123,13 @@ jQuery(document).ready(function ($) {
 	let chart_percentage = document.querySelectorAll(".list-control_panel_bar li .investment_income");
 	let chart_date = document.querySelectorAll(".list-control_panel_bar li");
 	let chart_date_month_arrey = ['01.01', '01.02', '01.03', '01.04', '01.05', '01.06', '01.07', '01.08', '01.09', '01.10', '01.11', '01.12'];
-	let chart_percentage_arrey = [];
+	let chart_percentage_arrey = [4.82, 5.13, 5.98, 5.56, 6.17, 4.19, 4.34, 4.72, 5.96, 5.45, 4.79, 5.19];
 	
 	let chart_year = [];
 	for (let i = 0; i < chart_date.length; i++) {
 		chart_year[i] = chart_date[i].outerText; 
 	}
-	let chart_date_arrey = [];
+	let chart_date_arrey = ['2018', '2019', '2020', '2021', '2022'];
 
 	if(chart_percentage.length > 0 && chart_date.length > 0){
 		for (let i = 0; i < chart_percentage.length; i++) {
@@ -149,8 +149,8 @@ jQuery(document).ready(function ($) {
 		}
 	} 
 	
-	let bar_year_percentage = [];
-	let bar_year_date = [];
+	let bar_year_percentage = [4.82, 5.13, 5.98, 5.56, 6.17, 4.19, 4.34, 4.72, 5.96, 5.45, 4.79, 5.19];
+	let bar_year_date = ['2018', '2019', '2020', '2021', '2022'];;
 	let residue = chart_date_arrey.length % 12;
 	if (residue === 0 ){ residue = 12; }
 	let count = 0;
@@ -215,8 +215,9 @@ jQuery(document).ready(function ($) {
 
 	let chart_area_Container = new ApexCharts(document.querySelector("#chart_area_Container"), chart_area);
 	let chart_bar_Container = new ApexCharts(document.querySelector("#chart_bar_Container"), chart_bar);
-
-	chart_bar_Container.render();
+	if(chart_percentage.length > 0 && chart_date.length > 0){
+		chart_bar_Container.render();
+	}
 
 	$('.list-group-area_chart').click(function(){
         if($('.graph_area_chart').hasClass('hidden')){

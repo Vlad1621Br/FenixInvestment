@@ -39,7 +39,7 @@ get_header();
         <div class="row pt-96">
             <div class="col-md-12 col-12 d-flex justify-content-center">
                 <div class="title_form_contacts d-flex justify-content-betwen  flex-row">
-                    <div class="mail_info_contact d-flex justify-content-center  flex-column">
+                    <div class="mail_info_contact d-flex justify-content-center flex-column">
                         <span class="pb-md-4"><?php pll_e('email_contacts'); ?></span>
                         <span><?php the_field( "mail", 11 ); ?></span>
 						<?php if (get_locale() == 'ru_RU') { ?>

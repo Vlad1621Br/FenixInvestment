@@ -279,7 +279,7 @@ body.page {margin:0;overflow-x:hidden;}
 .pl-96{ padding-left: 96px; }
 .pr-96{ padding-right: 96px; }
 
-.contact_link {margin-left: 25px;display: flex;/*align-items: center;*/font-size: 18px;flex-wrap: nowrap;}
+.contact_link {margin-left: 25px;display: flex; align-items: center; font-size: 18px;flex-wrap: nowrap;}
 .contact_link div {margin-left: 10px;}
 .icon-mail {width: 20px;height: 20px;flex: 0 0 20px;background: url(img/icon_mail.svg)no-repeat center;background-size:cover;}
 .icon-phone {width: 20px;height: 20px;flex: 0 0 20px;background: url(img/icon_phone.svg)no-repeat center;background-size:cover;}
@@ -510,6 +510,7 @@ body #fancybox-right {right: -10px;}
 .block_project:hover { background: #051C36; cursor: pointer; transition-duration: 1.4s;}
 .block_project:hover .w_txt { color: #fff;}
 .project_subhead .gr_btn:hover { color: #fff!important;}
+
 
 .project_item a:hover .gr_btn span{
 	color: #fff;
@@ -903,6 +904,8 @@ content: ' ';
 	left: 68%;
 }
 
+.description_link a { color: #2081E2!important; align-items: center; margin: 0px 10px;}
+.description_link a:hover{ color: #E30613!important;}
 .text_project div span { position: relative; font-size: 16px; line-height: 26px; color: #575757; max-width: 636px;}
 .title_descript_project{ position: relative; display: flex; justify-content: start; margin: auto;}
 .title__project { font-size: 38px; font-weight: bold; line-height: 64px; color: #191A1B; max-width: 480px;}
@@ -919,20 +922,19 @@ content: ' ';
 .description_project { max-width: 546px; }
 #elements_project .container .row div:nth-child(2n){ flex-direction: row-reverse!important;}
 
-.text_block_project { max-width: 830px; }
-.project_plans_item{ min-height: 500px; position: relative;}
-.project_plans_info { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); color: #FFFFFF; }
+
+#project_plans { position: relative;}
+#project_plans .project_img_plans {width: 100%; min-height: 500px!important; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
+.project_plans_info {  position: relative; color: #FFFFFF; }
+
+.text_block_project { max-width: 830px; color: #FFFFFF;}
+.project_plans_desc a {color: #fff!important;}
+.project_plans_desc a:hover {color: #E30613!important;}
 .project_plans_title { font-size: 24px; line-height: 36px; color: #FFFFFF; }
 .project_plans_desc { font-size: 16px; line-height: 26px; color: #FFFFFF; }
 .favicon_project_plans { margin-left: auto; }
 .favicon_project_plans img {transform: scaleX(-1);}
 
-.project_187 {background: url(img/img_sawmill.jpg) no-repeat center;background-size: cover;}
-.project_330 {background: url(img/img_sawmill.jpg) no-repeat center;background-size: cover;}
-.project_402 {background: url(img/img_sawmill.jpg) no-repeat center;background-size: cover;}
-.project_189 {background: url(img/img_mountain_river.jpg) no-repeat center;background-size: cover;}
-.project_353 {background: url(img/img_mountain_river.jpg) no-repeat center;background-size: cover;}
-.project_397 {background: url(img/img_mountain_river.jpg) no-repeat center;background-size: cover;}
 
 .slider_greenhouse .slick-track {display: flex!important;align-content: stretch;align-items: stretch;}
 .slider_greenhouse .slick-track .img_slider {max-height: 336px;height: auto;}

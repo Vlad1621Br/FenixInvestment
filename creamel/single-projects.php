@@ -54,9 +54,13 @@ get_header();
                     <span class="title__project mb-4"><?php the_field('title_description_contents'); ?></span>
                 </div>
             </div>          
-            <div class="text_project col-lg-6 col-12 d-flex">             
+            <div class="text_project col-lg-6 col-12 d-flex">
                 <div class="descript_project my-md-auto my-4">
                     <span><?php the_field('short_description_contents'); ?></span>
+                    <div class="d-flex flex-row align-items-center my-2 description_link">
+                        <img src="<?php the_field('image_for_description_link'); ?>">
+                        <a href="<?php the_field('project_description_link'); ?>"><?php the_field('link_text_of_project_description'); ?></a>
+                    </div>
                 </div>              
             </div>
         </div>
@@ -92,30 +96,35 @@ get_header();
 
 
 <!-- Планы по проекту -->
-<section id="project_plans" class="project_<?php the_ID(); ?> pt-96 pb-96 text-white">
-	<div class="container">
-		<div class="row flex-md-row flex-md-row flex-column-reverse align-items-md-center mt-md-5 mb-md-5">
-			<div class="col-md-10 col-12">			
-				<div class="text_block_project">
-					<div class="project_plans_title mb-4"><?php the_field('title_project_plans'); ?></div>
-					<div class="project_plans_desc"><?php the_field('description_project_plans'); ?></div>
-				</div>				
-			</div>
-			<div class="col-md-2 col-12 d-flex align-items-center justify-content-md-end justify-content-center favicon_project_plans">
-				<img src="/wp-content/uploads/2021/10/img_block_max_protection.png">
-			</div>
-		</div>
-	</div>
-</section>
-
+<?php if(get_field('img_project_plans') && get_field('title_project_plans') ): ?>
+    <section id="project_plans" class="project_<?php the_ID(); ?>  pt-96 pb-96 text-white" >
+        <?php $id_image = get_field("img_project_plans");
+            $size_image = "full";
+            if ($id_image) {?> 
+                <img class="project_img_plans" src="<?php echo wp_get_attachment_image($id_image, $size_image);}?>" />
+        <div class="container">
+            <div class="project_plans_info row flex-md-row flex-md-row flex-column-reverse align-items-md-center mt-md-5 mb-md-5">
+                <div class="col-md-10 col-12">			
+                    <div class="text_block_project">
+                        <div class="project_plans_title mb-4"><?php the_field('title_project_plans'); ?></div>
+                        <div class="project_plans_desc"><?php the_field('description_project_plans'); ?></div>
+                    </div>				
+                </div>
+                <div class="col-md-2 col-12 d-flex align-items-center justify-content-md-end justify-content-center favicon_project_plans">
+                    <img src="/wp-content/uploads/2021/10/img_block_max_protection.png">
+                </div>
+            </div>
+        </div>
+    </section>
+<?php endif; ?>
 
 
 <?php if(get_field('greenhouse')): ?>
     <section id="greenhouse_slider">
         <div class="container pt-96 pb-96">
             <div class="row">
-                <div class="title_section line_left_title col-12 mb-4 ps-4 d-flex align-items-center">GreenHouse</div>      
-                <div class="mb-md-5 h6 mb-4"><?php pll_e('subtitle_GreenHouse'); ?></div>
+                <div class="title_section line_left_title col-12 mb-4 ps-4 d-flex align-items-center"><?= get_field("title_slider_proj"); ?></div>      
+                <div class="mb-md-5 h6 mb-4"><?= get_field("subtitle_slider_proj"); ?></div>
                 <div class="col-12 px-0">
                     <div class="slider_greenhouse">                       
                         <?php $img_gallery = get_field('greenhouse');
