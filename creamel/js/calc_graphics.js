@@ -69,7 +69,7 @@ jQuery(document).ready(function ($) {
 							grafic_accrued_year[j-1] = +(deposit_interest.toFixed(2));		//процент
 							grafic_general_contribut[j-1] = i * monthly_installment;	//общий взнос
 							table_general_contribut = i * monthly_installment;
-							grafic_initial_fee[j-1] = an_initial_fee;
+							grafic_initial_fee[j-1] = Number(base_accrual_amount.toFixed(2));
 							month_or_year_n[j-1] = j;
 							month_or_year_n[j-1] += ' ' + month_or_year_word;
 						}
@@ -92,7 +92,7 @@ jQuery(document).ready(function ($) {
 						grafic_accrued_year[i] = +deposit_interest.toFixed(2);	//процент
 						grafic_general_contribut[i] = i * monthly_installment;	//общий взнос
 						table_general_contribut = i * monthly_installment;
-						grafic_initial_fee[i] = an_initial_fee;					//начальный взнос
+						grafic_initial_fee[i] = Number(base_accrual_amount.toFixed(2));					//начальный взнос
 						month_or_year_n[i] = i+1;
 						month_or_year_n[i] += ' ' + month_or_year_word;
 						
@@ -119,7 +119,7 @@ jQuery(document).ready(function ($) {
 							grafic_accrued_year[j-1] = +(deposit_interest.toFixed(2));		//процент
 							grafic_general_contribut[j-1] = i * monthly_installment;	//общий взнос
 							table_general_contribut = i * monthly_installment;
-							grafic_initial_fee[j-1] = an_initial_fee;
+							grafic_initial_fee[j-1] = Number(base_accrual_amount.toFixed(2));
 							month_or_year_n[j-1] = j;
 							month_or_year_n[j-1] += ' ' + month_or_year_word;
 						}
@@ -143,7 +143,7 @@ jQuery(document).ready(function ($) {
 						grafic_accrued_year[i] = +(deposit_interest.toFixed(2));	//процент
 						grafic_general_contribut[i] = i * monthly_installment;	//общий взнос
 						table_general_contribut = i * monthly_installment;
-						grafic_initial_fee[i] = an_initial_fee;					//начальный взнос
+						grafic_initial_fee[i] = Number(base_accrual_amount.toFixed(2));					//начальный взнос
 						month_or_year_n[i] = i+1;
 						month_or_year_n[i] += ' ' + month_or_year_word;
 						$(".table_deposit_accrual_scheme > tbody").append("<tr><td>"+(i+1)+"</td><td>"+base_accrual_amount.toFixed(2)+"</td><td>"+table_general_contribut.toFixed(2)+"</td><td>"+deposit_interest.toFixed(2)+"</td><td>"+total_amount_with_interest.toFixed(2)+"</td></tr>");
@@ -213,9 +213,7 @@ jQuery(document).ready(function ($) {
 				data: grafic_initial_fee, color: '#196ab5',
 				legendIndex:0
 			}]
-
 		});
-
 	});
 
 

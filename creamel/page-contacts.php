@@ -34,6 +34,16 @@ get_header();
 </section>
 
 
+<?php
+if (get_locale() == 'ru_RU') {
+	$page_id = 11;
+} else if (get_locale() == 'en_GB') {
+	$page_id = 288;
+} else {
+	$page_id = 393;
+}
+?>
+
 <section id="page_contact_form" class="pb-96">
     <div class="container">
         <div class="row pt-96">
@@ -42,12 +52,19 @@ get_header();
                     <div class="mail_info_contact d-flex justify-content-center flex-column">
                         <span class="pb-md-4"><?php pll_e('email_contacts'); ?></span>
                         <span><?php the_field( "mail", 11 ); ?></span>
-						<?php if (get_locale() == 'ru_RU') { ?>
-							<a href="tel:<?php echo echo_phone_link(); ?>" class="contact_link me-auto">
-								<span class="text-phone">Тел.: </span>
-								<div class="d-xl-block d-none"><?php the_field( "phone", 11 ); ?></div>
-							</a>
-						<?php } ?>
+
+                        <?php if(get_field('address', $page_id)): ?>
+                            <a href="tel:<?php echo echo_phone_link(); ?>" class="contact_link me-auto">
+                                <span class="text-phone">Тел.: </span>
+                                <div class="d-block"><?php the_field( "phone", $page_id ); ?></div>                              
+                            </a>
+                            <div class = "location_geo d-flex flex-row align-items-start">
+                                <img src="/wp-content/uploads/2021/11/icon_geo_gray.svg">
+                                <span class="location ms-3"><?php the_field( "address", $page_id ); ?></span>
+                            </div>
+                        <?php endif; ?>
+
+
                     </div>
                     <div class="text_info_contact d-flex justify-content-center  flex-column">
                         <span class="text_info_title pt-5 pb-4"><?php pll_e('subtitle_for_investors'); ?></span>
@@ -72,6 +89,8 @@ get_header();
         </div>
     </div>
 </section>
+
+
 
 
 <?php

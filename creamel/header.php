@@ -74,11 +74,20 @@
 						   <?php pll_the_languages( array( 'dropdown' => 1 ) ); ?>						    
 						</ul>
 						<div class="admin_email_contact flex-xl-column">
-						<?php if (get_locale() == 'ru_RU') { ?>
-							<a href="tel:<?php echo echo_phone_link(); ?>" class="contact_link"><span class="icon-phone mx-sm-2 mx-2"></span><div class="d-xl-block d-none"><?php the_field( "phone", 11 ); ?></div></a>
-							<?php if(get_field('time', 11)): ?><div class="contact_link d-lg-block d-none lh-1"><div class="footer_time d-block small mx-3 ms-xl-5"><?php the_field( "time", 11 ); ?></div></div><?php endif; ?>
-						<?php } ?>
-							<a href="mailto:<?php the_field( "mail", 11 ); ?>" class="contact_link"><span class="icon-mail mx-sm-2 mx-2"></span><div class="d-xl-block d-none"><?php the_field( "mail", 11 ); ?></div></a>
+							<?php if (get_locale() == 'ru_RU') { ?>
+								<a href="tel:<?php echo echo_phone_link(); ?>" class="contact_link"><span class="icon-phone mx-sm-2 mx-2"></span><div class="d-xl-block d-none"><?php the_field( "phone", 11 ); ?></div></a>
+								<?php if(get_field('time', 11)): ?><div class="contact_link d-lg-block d-none lh-1"><div class="footer_time d-block small mx-3 ms-xl-5"><?php the_field( "time", 11 ); ?></div></div><?php endif; ?>
+							<?php }  else if (get_locale() == 'en_GB') { ?>
+								<a href="tel:<?php echo echo_phone_link(); ?>" class="contact_link"><span class="icon-phone mx-sm-2 mx-2"></span><div class="d-xl-block d-none"><?php the_field( "phone", 288 ); ?></div></a>
+								<?php if(get_field('time', 288)): ?><div class="contact_link d-lg-block d-none lh-1"><div class="footer_time d-block small mx-3 ms-xl-5"><?php the_field( "time", 288 ); ?></div></div><?php endif; ?>
+							<?php } else { ?>
+								<a href="tel:<?php echo echo_phone_link(); ?>" class="contact_link"><span class="icon-phone mx-sm-2 mx-2"></span><div class="d-xl-block d-none"><?php the_field( "phone", 393 ); ?></div></a>
+								<?php if(get_field('time', 393)): ?><div class="contact_link d-lg-block d-none lh-1"><div class="footer_time d-block small mx-3 ms-xl-5"><?php the_field( "time", 393 ); ?></div></div><?php endif; ?>
+							<?php } ?>
+
+
+
+								<a href="mailto:<?php the_field( "mail", 11 ); ?>" class="contact_link"><span class="icon-mail mx-sm-2 mx-2"></span><div class="d-xl-block d-none"><?php the_field( "mail", 11 ); ?></div></a>
 						</div>
 
 						<a class="fancybox gr_btn" href="#contact_form_pop"><?php pll_e('header_btn_write_to_us'); ?></a>

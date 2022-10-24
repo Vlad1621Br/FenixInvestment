@@ -69,10 +69,22 @@ if (get_locale() == 'ru_RU') {
 					<div class="block-title color_gray txt_upper mb-3"><?php pll_e('f_CONTACTS'); ?></div>
 					<a href="mailto:<?php the_field( "mail", 11 ); ?>" class="contact_link"><span class="icon-mail-gray mx-sm-2 mx-2"></span><div class="footer_mail d-xl-block d-block"><?php the_field( "mail", 11 ); ?></div></a>	
 					<?php if (get_locale() == 'ru_RU') { ?>
-					<a href="tel:<?php echo echo_phone_link(); ?>" class="contact_link mt-3"><span class="icon-phone-gray mx-sm-2 mx-2"></span><div class=" footer_phone d-xl-block d-block"><?php the_field( "phone", 11 ); ?></div></a>
+						<a href="tel:<?php echo echo_phone_link(); ?>" class="contact_link mt-3"><span class="icon-phone-gray mx-sm-2 mx-2"></span><div class=" footer_phone d-xl-block d-block"><?php the_field( "phone", 11 ); ?></div></a>
+					<?php } else if (get_locale() == 'en_GB') { ?>
+						<a href="tel:<?php echo echo_phone_link(); ?>" class="contact_link mt-3"><span class="icon-phone-gray mx-sm-2 mx-2"></span><div class=" footer_phone d-xl-block d-block"><?php the_field( "phone", 288 ); ?></div></a>
+					<?php } else { ?>
+						<a href="tel:<?php echo echo_phone_link(); ?>" class="contact_link mt-3"><span class="icon-phone-gray mx-sm-2 mx-2"></span><div class=" footer_phone d-xl-block d-block"><?php the_field( "phone", 393 ); ?></div></a>
 					<?php } ?>
-					<?php if(get_field('time', $page_id)): ?><div class="contact_link mt-3"><span class="icon-time mx-sm-2 mx-2"></span><div class="footer_time d-block"><?php the_field( "time", $page_id ); ?></div></div><?php endif; ?>
-					<?php if(get_field('address', $page_id)): ?><div class="contact_link mt-3 ms-5 ps-1 mb-4"><?php the_field( "address", $page_id ); ?></div><?php endif; ?>
+					<?php if(get_field('time', $page_id)): ?>
+						<div class="contact_link mt-3">
+							<span class="icon-time mx-sm-2 mx-2"></span>
+							<div class="footer_time d-block"><?php the_field( "time", $page_id ); ?></div>
+						</div><?php endif; ?>
+					<?php if(get_field('address', $page_id)): ?>
+						<div class="contact_link mt-3 mb-4">
+							<span class="icon-address-gray mx-sm-2 mx-2"></span>
+							<div class="footer_address d-block"><?php the_field( "address", $page_id ); ?></div>
+						</div><?php endif; ?>
 				</div>
 
 				<div class="contact_us col-lg-4 col-sm-7 col-12 order-3 mb-lg-0 mb-5">
